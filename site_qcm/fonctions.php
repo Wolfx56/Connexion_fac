@@ -37,12 +37,8 @@ function recupInfosLdap($login)
 	$basedn="ou=people,dc=unilim,dc=fr";
 	$ds = ldap_connect($url_serveur_ldap,$port); 
 
-	var_dump($ds);
-
 	if ($ds) {
-		$opt=ldap_set_option($ds,LDAP_OPT_PROTOCOL_VERSION,3);
-		var_dump($opt);
-
+		ldap_set_option($ds,LDAP_OPT_PROTOCOL_VERSION,3);
 		$r=ldap_bind($ds);
 		if (!$r ) {
 			ldap_close($ds);
